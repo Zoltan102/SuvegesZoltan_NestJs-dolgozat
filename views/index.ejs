@@ -3,12 +3,32 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title><%= message %></title>
+    <title></title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
 <body>
-    <p><%= message %></p>
+  <form action="/search" method="get">
+    <input type="text" name="eyeColor" id="eyeColor">
+    <input type="submit" value="Keresés">
+  </form>
+
+  <form action="/cats/new" method="get">
+    <input type="submit" value="Új macska">
+  </form>
+
+  <table style="padding: 10px;">
+    <tr>
+      <th>Súly</th>
+      <th>Szem szín</th>
+    </tr>
+    <% for(let c of cats) {%>
+      <tr>
+        <td><%= c.suly %> </td>
+        <td><%= c.szem_szin %> </td>
+      </tr>  
+    <% } %> 
+  </table>
 </body>
 </html>
